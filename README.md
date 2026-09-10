@@ -6,18 +6,23 @@ PyBe is a scenario-driven Python learning prototype built from the supplied PRD 
 
 ## Features
 
-- Scenario browser with difficulty, concept, and search filters
-- Interactive learning session: learner reasoning, abstraction mapping, conversational prompts, Python construct generation, prompt scoring, and reflection capture
-- Dashboard with progress, prompt maturity, concept mastery, misconceptions, and recent sessions
-- Roadmap view covering V0 through V3 from the source documents
-- JSON-file backed API with seed data
+- **Scenario Browser & AI Mentor**: Difficulty, concept, and search filters with learner reasoning, abstraction mapping, conversational prompts, Python construct generation, prompt scoring, and reflection capture.
+- **🎭 Interactive OOP Story Lab**:
+  - **Buddy's Magic Pet Shop (Encapsulation Adventure)**: 4-part animated storyline teaching Python OOP encapsulation (private variables `__health`, `@property`, validated setters, defensive methods) with interactive pet care, tamper defense, and graduation ceremony.
+  - **Hero Academy (Inheritance Adventure)**: Multi-character superhero training ground explaining OOP inheritance, parent classes, overriding, and custom hero builders.
+  - **Pyodide WebAssembly Python Engine**: Live in-browser Python execution with real-time output and instant feedback.
+  - **Companion Python Test Suite**: Standalone terminal-runnable reference scripts and unit tests verifying encapsulation domain invariants.
+- **Learner Dashboard**: Progress analytics, prompt maturity, concept mastery, misconceptions, and recent sessions.
+- **Roadmap View**: Covering V0 through V3 staged product evolution.
+- **JSON-file backed API** with seedable scenarios.
 
 ## Tech Stack
 
-- JSON file storage
-- Express + Node.js
-- React + Vite
-- Plain CSS, no auth
+- **Storage**: JSON file store (`server/src/data/db.json`)
+- **Backend**: Express + Node.js
+- **Frontend**: React + Vite + Lucide icons + Canvas Confetti
+- **In-Browser Python**: Pyodide (WebAssembly)
+- **Styling**: Vanilla CSS (Rich cartoon rigs + sleek learning dashboard)
 
 ## Prerequisites
 
@@ -51,8 +56,12 @@ npm run seed
 npm run dev
 ```
 
-- Frontend: http://localhost:5173
-- API: http://localhost:5000/api
+5. Run the companion Python reference & unit tests:
+
+```bash
+python -m unittest python_reference/test_pet_shop.py
+python python_reference/pet_shop_puppy.py
+```
 
 ## Notes
 
