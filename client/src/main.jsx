@@ -95,7 +95,7 @@ function App() {
           <div className="story-topbar-title">
             <Sparkles size={20} className="sparkle-icon" />
             <strong>PyBe Interactive OOP Story Lab</strong>
-            <span className="badge-encapsulation">Encapsulation & Inheritance</span>
+            <span className="badge-encapsulation">Encapsulation</span>
           </div>
           <div className="story-topbar-status">
             <ShieldCheck size={16} />

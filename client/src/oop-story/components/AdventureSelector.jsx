@@ -4,7 +4,7 @@ import { SoundService } from '../services/soundEffects';
 import '../styles/heroAcademy.css';
 
 export default function AdventureSelector({
-  activeCaseStudy = 'inheritance', // 'encapsulation' | 'inheritance'
+  activeCaseStudy = 'encapsulation',
   onSelectCaseStudy
 }) {
   const caseStudies = [
@@ -16,24 +16,22 @@ export default function AdventureSelector({
       subtitle: "Buddy's Magic Pet Shop",
       activeClass: 'active-cs1',
       badgeColor: '#D97706',
-      completed: true
+      completed: false
     },
     {
       id: 'inheritance',
       num: 2,
       title: 'Inheritance',
       icon: '🧬',
-      subtitle: 'Hero Academy: The Power Family',
-      activeClass: 'active-cs2',
-      badgeColor: '#0284C7',
-      isNew: true
+      subtitle: 'Future Scope',
+      locked: true
     },
     {
       id: 'polymorphism',
       num: 3,
       title: 'Polymorphism',
       icon: '🎭',
-      subtitle: 'Coming Soon',
+      subtitle: 'Future Scope',
       locked: true
     },
     {
@@ -41,7 +39,7 @@ export default function AdventureSelector({
       num: 4,
       title: 'Abstraction',
       icon: '🔮',
-      subtitle: 'Coming Soon',
+      subtitle: 'Future Scope',
       locked: true
     }
   ];

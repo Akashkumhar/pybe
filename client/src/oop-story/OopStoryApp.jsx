@@ -449,7 +449,7 @@ export default function OopStoryApp() {
               {isCaseStudy1 ? "Buddy's Magic Pet Shop" : "Hero Academy — The Power Family"}
             </h1>
             <div className={isCaseStudy1 ? "" : "hero-brand-subtitle"} style={isCaseStudy1 ? { fontSize: '0.85rem', color: '#B45309', fontWeight: 600 } : {}}>
-              {isCaseStudy1 ? "Case Study 1: Python Encapsulation" : "Case Study 2: Python Inheritance in OOP"}
+              {isCaseStudy1 ? "Case Study: Python Encapsulation" : "Case Study 2: Python Inheritance in OOP"}
             </div>
           </div>
         </div>
