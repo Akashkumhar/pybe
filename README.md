@@ -79,9 +79,6 @@ The learning experience includes:
 4. Payal — UI/UX Review & Feedback
 5. Siddhnath Sharma — Functional Review & Testing
 
-> [!NOTE]
-> The review roles listed above represent the team's planned review and feedback responsibilities. Contributions may be updated as team members complete their respective reviews.
-
 ---
 
 ## 🎯 Project Purpose
