@@ -1,4 +1,5 @@
-const { resetData } = require('./data/store');
+// server/src/seed.js
+const store = require('./data/store');
 require('dotenv').config();
 
 const scenarios = [
@@ -319,8 +320,14 @@ const scenarios = [
 ];
 
 async function run() {
-  await resetData(scenarios);
-  console.log(`Seeded ${scenarios.length} PyBe scenarios`);
+  try {
+    const result = await store.resetData(scenarios);
+    console.log(`✅ Seeded ${scenarios.length} PyBe scenarios`);
+    console.log(`📊 Database initialized with ${result.scenarios.length} scenarios`);
+  } catch (error) {
+    console.error('❌ Seeding failed:', error.message);
+    throw error;
+  }
 }
 
 run().catch((error) => {
