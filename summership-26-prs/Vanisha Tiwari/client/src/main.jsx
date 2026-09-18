@@ -12,6 +12,13 @@ import {
   Search,
   Send,
   Sparkles,
+<<<<<<< HEAD:summership-26-prs/Vanisha Tiwari/client/src/main.jsx
+  Gamepad2,
+  ArrowLeft,
+  ShieldCheck
+} from 'lucide-react';
+import OopStoryApp from './oop-story/OopStoryApp';
+=======
   Rocket,
   Target,
   BookOpen,
@@ -19,6 +26,7 @@ import {
 } from 'lucide-react';
 import CodeEditor from './components/CodeEditor';
 import LearningPath from './components/LearningPath';
+>>>>>>> upstream/main:client/src/main.jsx
 import './styles.css';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
@@ -33,6 +41,7 @@ async function api(path, options) {
 }
 
 function App() {
+  const [activeTab, setActiveTab] = useState('scenarios'); // 'scenarios' | 'story-lab'
   const [scenarios, setScenarios] = useState([]);
   const [selected, setSelected] = useState(null);
   const [sessions, setSessions] = useState([]);
@@ -230,6 +239,34 @@ function App() {
 
   if (loading) return <main className="loading">Loading PyBe...</main>;
 
+  if (activeTab === 'story-lab') {
+    return (
+      <div className="story-mode-shell">
+        <header className="story-mode-topbar">
+          <button className="back-btn" onClick={() => setActiveTab('scenarios')}>
+            <ArrowLeft size={18} />
+            <span>Back to Scenario Workspace</span>
+          </button>
+          <div className="story-topbar-title">
+            <Sparkles size={20} className="sparkle-icon" />
+            <strong>PyBe Interactive OOP Story Lab</strong>
+            <span className="badge-encapsulation">Encapsulation</span>
+          </div>
+          <div className="story-topbar-status">
+            <ShieldCheck size={16} />
+            <span>Python WebAssembly Engine Active</span>
+          </div>
+        </header>
+        <main className="story-mode-content">
+          <OopStoryApp />
+        </main>
+      </div>
+    );
+  }
+
+  const isOopScenario = selected?.concepts?.some((c) => ['oop', 'encapsulation', 'properties'].includes(c.toLowerCase())) ||
+    selected?.title?.toLowerCase().includes('oop') || selected?.title?.toLowerCase().includes('pet shop');
+
   return (
     <main className="app-shell">
       <aside className="sidebar">
@@ -241,6 +278,27 @@ function App() {
           </div>
         </div>
 
+<<<<<<< HEAD:summership-26-prs/Vanisha Tiwari/client/src/main.jsx
+        <nav className="mode-nav">
+          <button
+            type="button"
+            className={activeTab === 'scenarios' ? 'mode-btn active' : 'mode-btn'}
+            onClick={() => setActiveTab('scenarios')}
+          >
+            <Compass size={18} />
+            <span>Scenarios & Practice</span>
+          </button>
+          <button
+            type="button"
+            className={activeTab === 'story-lab' ? 'mode-btn active highlight' : 'mode-btn highlight'}
+            onClick={() => setActiveTab('story-lab')}
+          >
+            <Gamepad2 size={18} />
+            <span>🎭 OOP Story Lab</span>
+            <span className="pill-badge">Play</span>
+          </button>
+        </nav>
+=======
         <div className="sidebar-nav">
           <button 
             className={`nav-btn ${activeTab === 'learn' ? 'active' : ''}`}
@@ -261,6 +319,7 @@ function App() {
             <Code2 size={16} /> Code Editor
           </button>
         </div>
+>>>>>>> upstream/main:client/src/main.jsx
 
         <label className="search">
           <Search size={18} />
@@ -311,6 +370,63 @@ function App() {
           </div>
         </header>
 
+<<<<<<< HEAD:summership-26-prs/Vanisha Tiwari/client/src/main.jsx
+        {isOopScenario && (
+          <div className="oop-featured-banner">
+            <div className="oop-banner-text">
+              <div className="badge">✨ Interactive Adventure Available</div>
+              <h3>Master Encapsulation with Buddy the Puppy!</h3>
+              <p>Experience an animated 2D cartoon storyline with live Capsule shielding, tamper defense, and in-browser Python runtime.</p>
+            </div>
+            <button className="banner-play-btn" onClick={() => setActiveTab('story-lab')}>
+              <Gamepad2 size={20} />
+              <span>Launch Animated Story Mode</span>
+            </button>
+          </div>
+        )}
+
+        <div className="main-grid">
+          <section className="panel learning-panel">
+            <div className="section-title">
+              <Compass size={20} />
+              <h2>{selected?.title}</h2>
+            </div>
+            <p className="context">{selected?.context}</p>
+            <div className="objective-row">
+              {selected?.objectives.map((item) => <span key={item}>{item}</span>)}
+            </div>
+            <form onSubmit={submitSession} className="learning-form">
+              <label>
+                Your reasoning
+                <textarea
+                  required
+                  value={form.reasoning}
+                  onChange={(event) => setForm({ ...form, reasoning: event.target.value })}
+                  placeholder={selected?.prompt}
+                />
+              </label>
+              <label>
+                Prompt you would give an AI mentor
+                <textarea
+                  value={form.promptText}
+                  onChange={(event) => setForm({ ...form, promptText: event.target.value })}
+                  placeholder="Explain my approach step by step, then show the Python concept and code..."
+                />
+              </label>
+              <label>
+                Reflection
+                <textarea
+                  value={form.reflection}
+                  onChange={(event) => setForm({ ...form, reflection: event.target.value })}
+                  placeholder="What did you notice about your thinking?"
+                />
+              </label>
+              <button className="primary" disabled={submitting}>
+                <Send size={18} />{submitting ? 'Mapping...' : 'Map My Reasoning'}
+              </button>
+            </form>
+          </section>
+=======
         {activeTab === 'learn' && (
           <div className="main-grid">
             <section className="panel learning-panel">
@@ -379,6 +495,7 @@ function App() {
                   <Send size={18} />{submitting ? 'Mapping...' : 'Map My Reasoning'}
                 </button>
               </form>
+>>>>>>> upstream/main:client/src/main.jsx
 
               {/* NLP Result Display */}
               {nlpResult && (
